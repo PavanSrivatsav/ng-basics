@@ -8,12 +8,12 @@ import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     TabsComponent,
     ListComponent,
-      ItemComponent
-   ],
+    ItemComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule
