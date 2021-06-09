@@ -9,14 +9,11 @@ import { Character } from '../model/character';
 export class ItemComponent {
 
   @Input() character: Character = new Character();
-  @Output() selectedItem = new EventEmitter<Character>();
 
   constructor() { }
 
   setSelectedItem(char: Character, side: string) {
     char.side = side;
-    this.selectedItem.emit(this.character);
-
   }
 
 

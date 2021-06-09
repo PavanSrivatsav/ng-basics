@@ -1,4 +1,5 @@
 import { Character } from './../model/character';
+import { AvengersService } from './../avengers.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,24 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabsComponent {
 
-  characters = [
-    { name: 'Luke Skywalker', side: '' },
-    { name: 'Darth Vader', side: '' }
-  ];
 
+  characters = [];
   chosenList = 'all';
+  avengersService: AvengersService = new AvengersService;
 
-  constructor() { }
+  constructor(private avService: AvengersService) {
+    this.avengersService = avService;
+  }
 
   setChosenList(list: string) {
     this.chosenList = list;
   }
 
-  getCharacters() {
-    if (this.chosenList === 'all') {
-      return this.characters;
-    }
-    return this.characters.filter((char) => char.side === this.chosenList);
+  getCharacters(): Character[] {
+    return this.avengersService.getChosenListCharcters(this.chosenList);
   }
 
 }

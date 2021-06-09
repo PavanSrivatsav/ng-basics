@@ -9,13 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class ListComponent {
 
   @Input() characters: Character[] = new Array();
-  @Output() selectedItem = new EventEmitter<Character>();
 
   constructor() { }
-
-  setSelectedItem(item: Character) {
-    this.selectedItem.emit(item);
-  }
-
 
 }

@@ -4,10 +4,10 @@
       <a class="nav-link" [ngClass]="{ active: chosenList === 'all'}" (click)="setChosenList('all')">All</a>
     </li>
     <li class="nav-item pointer" role="presentation">
-      <a class="nav-link" [ngClass]="{ active: chosenList === 'light'}" (click)="setChosenList('light')">Light</a>
+      <a class="nav-link" [ngClass]="{ active: chosenList === 'better'}" (click)="setChosenList('better')">Better</a>
     </li>
     <li class="nav-item pointer" role="presentation">
-      <a class="nav-link" [ngClass]="{ active: chosenList === 'dark'}" (click)="setChosenList('dark')">Dark</a>
+      <a class="nav-link" [ngClass]="{ active: chosenList === 'best'}" (click)="setChosenList('best')">Best</a>
     </li>
   </ul>
   <app-list [characters]="getCharacters()"></app-list>
