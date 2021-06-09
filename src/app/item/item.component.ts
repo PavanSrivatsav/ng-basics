@@ -1,17 +1,23 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Character } from '../model/character';
 
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })
-export class ItemComponent implements OnInit {
+export class ItemComponent {
 
-  @Input() character: any;
+  @Input() character: Character = new Character();
+  @Output() selectedItem = new EventEmitter<Character>();
 
   constructor() { }
 
-  ngOnInit() {
+  setSelectedItem(char: Character, side: string) {
+    char.side = side;
+    this.selectedItem.emit(this.character);
+
   }
+
 
 }

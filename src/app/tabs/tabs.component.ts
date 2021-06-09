@@ -1,3 +1,4 @@
+import { Character } from './../model/character';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.scss']
 })
-export class TabsComponent implements OnInit {
+export class TabsComponent {
 
   characters = [
     { name: 'Luke Skywalker', side: '' },
@@ -16,11 +17,15 @@ export class TabsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
   setChosenList(list: string) {
     this.chosenList = list;
+  }
+
+  getCharacters() {
+    if (this.chosenList === 'all') {
+      return this.characters;
+    }
+    return this.characters.filter((char) => char.side === this.chosenList);
   }
 
 }

@@ -1,18 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Character } from './../model/character';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
 
-  @Input() characters: any;
-  @Input() chosenList?: string;
+  @Input() characters: Character[] = new Array();
+  @Output() selectedItem = new EventEmitter<Character>();
 
   constructor() { }
 
-  ngOnInit(): void {
+  setSelectedItem(item: Character) {
+    this.selectedItem.emit(item);
   }
 
 

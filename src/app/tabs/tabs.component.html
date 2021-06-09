@@ -10,5 +10,5 @@
       <a class="nav-link" [ngClass]="{ active: chosenList === 'dark'}" (click)="setChosenList('dark')">Dark</a>
     </li>
   </ul>
-  <app-list [characters]="characters" [chosenList]="chosenList"></app-list>
+  <app-list [characters]="getCharacters()"></app-list>
 </div>
