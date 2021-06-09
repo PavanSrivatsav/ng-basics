@@ -6,7 +6,7 @@ import { Character } from '../model/character';
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })
-export class ItemComponent implements OnInit {
+export class ItemComponent {
 
   @Input() character: Character = new Character();
   @Output() selectedItem = new EventEmitter<Character>();
