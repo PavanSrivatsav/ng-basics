@@ -36,7 +36,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: checking the lint
-        run: ng lint
+        run: npm lint
         
       #- name: checking the test case coverage
       #  run: npm run test
