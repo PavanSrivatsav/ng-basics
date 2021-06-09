@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Character } from './../model/character';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -7,12 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  @Input() characters: any;
-  @Input() chosenList?: string;
+  @Input() characters: Character[] = new Array();
+  @Output() selectedItem = new EventEmitter<Character>();
 
   constructor() { }
 
-  ngOnInit(): void {
+  setSelectedItem(item: Character) {
+    this.selectedItem.emit(item);
   }
 
 
