@@ -22,7 +22,7 @@ export class AvengersService {
 
   getChosenListCharcters(chosenList: string) {
     if (chosenList === 'all') {
-      return this.characters;
+      return this.characters.slice();
     }
     return this.characters.filter((char) => char.side === chosenList);
   }

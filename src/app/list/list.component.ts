@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AvengersService } from './../avengers.service';
 import { Character } from './../model/character';
 
 @Component({
@@ -6,10 +8,22 @@ import { Character } from './../model/character';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
 
-  @Input() characters: Character[] = new Array();
+  characters: Character[] = new Array();
+  avengersService: AvengersService;
+  activeRoute: ActivatedRoute;
 
-  constructor() { }
+  constructor(avengersService: AvengersService, activeRoute: ActivatedRoute) {
+    this.avengersService = avengersService;
+    this.activeRoute = activeRoute;
+  }
+
+  ngOnInit() {
+    this.activeRoute.params.subscribe((params) => {
+      this.characters = this.avengersService.getChosenListCharcters(params.side);
+    }
+    );
+  }
 
 }
