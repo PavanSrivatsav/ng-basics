@@ -1,6 +1,6 @@
-import { Character } from './../model/character';
+import { Component } from '@angular/core';
 import { AvengersService } from './../avengers.service';
-import { Component, OnInit } from '@angular/core';
+import { Character } from './../model/character';
 
 @Component({
   selector: 'app-tabs',

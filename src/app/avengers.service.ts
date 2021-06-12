@@ -9,7 +9,14 @@ export class AvengersService {
 
   private characters = [
     { name: 'Robert Downey Jr.', side: '' },
-    { name: 'Chris Evans', side: '' }
+    { name: 'Chris Evans', side: '' },
+    { name: 'Paul Rudd', side: '' },
+    { name: 'Jeremy Renner', side: '' },
+    { name: 'Benedict Cumberbatch', side: '' },
+    { name: 'Chris Hemsworth', side: '' },
+    { name: 'Tom Holland', side: '' },
+    { name: 'Chadwick Aaron Boseman', side: '' },
+    { name: 'Scarlett Johansson', side: '' },
   ];
 
 
@@ -18,6 +25,10 @@ export class AvengersService {
       return this.characters;
     }
     return this.characters.filter((char) => char.side === chosenList);
+  }
+
+  addCharacter(name: string, side: string) {
+    this.characters.unshift({ name: name, side: side });
   }
 
 }
