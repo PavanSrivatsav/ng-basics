@@ -1,5 +1,5 @@
+import { Component, Input } from '@angular/core';
 import { Character } from './../model/character';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-list',
