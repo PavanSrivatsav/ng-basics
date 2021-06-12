@@ -2,7 +2,7 @@
   <!-- ngForm is the angular form object-->
   <div class="form-group">
     <label for="characterName">Character name</label>
-    <input type="text" autocomplete="off" name="characterName" id="characterName" class="form-control" ngModel>
+    <input type="text" autocomplete="off" name="characterName" id="characterName" class="form-control" ngModel required>
     <!-- Adding ngModel to a field in form will get consider that field as an control inside form.
       So you can get data from that-->
   </div>
@@ -12,5 +12,5 @@
       <option *ngFor="let side of sides" [value]="side.value">{{side.label}}</option>
     </select>
   </div>
-  <button class="btn btn-primary" type="submit">Add Character</button>
+  <button class="btn btn-primary" type="submit" [disabled]="characterForm.invalid">Add Character</button>
 </form>

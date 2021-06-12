@@ -28,7 +28,8 @@ export class AvengersService {
   }
 
   addCharacter(name: string, side: string) {
-    this.characters.unshift({ name: name, side: side });
+    if (this.characters.findIndex((val) => val.name.toLowerCase() === name.toLowerCase()) === -1)
+      this.characters.unshift({ name: name, side: side });
   }
 
 }
