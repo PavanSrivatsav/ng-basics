@@ -18,7 +18,7 @@ describe('ListComponent', () => {
   beforeEach(() => {
     const activatedRouteStub = () => ({ params: { subscribe: f => f({}) } });
     const avengersServiceStub = () => ({
-      getChosenListCharcters: side => ({})
+      getChosenListCharacters: side => ({})
     });
     TestBed.configureTestingModule({
       schemas: [NO_ERRORS_SCHEMA],
@@ -44,9 +44,9 @@ describe('ListComponent', () => {
       const avengersServiceStub: AvengersService = fixture.debugElement.injector.get(
         AvengersService
       );
-      spyOn(avengersServiceStub, 'getChosenListCharcters').and.callThrough();
+      spyOn(avengersServiceStub, 'getChosenListCharacters').and.callThrough();
       component.ngOnInit();
-      expect(avengersServiceStub.getChosenListCharcters).toHaveBeenCalled();
+      expect(avengersServiceStub.getChosenListCharacters).toHaveBeenCalled();
     });
   });
 });
