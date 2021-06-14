@@ -1,15 +1,17 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Character } from './model/character';
-
 @Injectable({
   providedIn: 'root'
 })
 export class AvengersService {
 
   charactersChanged = new Subject<void>();
-
-  constructor() { }
+  httpClient: HttpClient;
+  constructor(httpClient: HttpClient) {
+    this.httpClient = httpClient;
+  }
 
   private characters: Character[] = [
     { name: 'Robert Downey Jr.', side: '' },
@@ -23,6 +25,15 @@ export class AvengersService {
     { name: 'Scarlett Johansson', side: '' },
   ];
 
+
+  getCharacterFromAPI() {
+    this.httpClient.get('https://swapi.dev/api/people/').subscribe((res: any) => {
+      this.characters = res.results.map((data: any) => {
+        return { name: data.name, side: '' };
+      })
+      this.charactersChanged.next();
+    });
+  }
 
   getChosenListCharacters(chosenList: string) {
     if (chosenList === 'all') {
