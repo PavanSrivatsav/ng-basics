@@ -13,7 +13,7 @@ export class ListComponent implements OnInit {
   characters: Character[] = new Array();
   avengersService: AvengersService;
   activeRoute: ActivatedRoute;
-
+  chosenList: string = 'all';
   constructor(avengersService: AvengersService, activeRoute: ActivatedRoute) {
     this.avengersService = avengersService;
     this.activeRoute = activeRoute;
@@ -21,7 +21,12 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.activeRoute.params.subscribe((params) => {
-      this.characters = this.avengersService.getChosenListCharcters(params.side);
+      this.characters = this.avengersService.getChosenListCharacters(params.side);
+      this.chosenList = params.side;
+    }
+    );
+    this.avengersService.charactersChanged.subscribe(() => {
+      this.characters = this.avengersService.getChosenListCharacters(this.chosenList);
     }
     );
   }
