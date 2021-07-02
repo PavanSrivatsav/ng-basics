@@ -37,7 +37,7 @@ jobs:
               
       - name: Install Node.js dependencies in Normal
         run: |
-              cd ../Normal
+              cd Normal
               npm ci
           
 
@@ -49,7 +49,7 @@ jobs:
               
       - name: Lint check for Normal
         run: |
-              cd ../Normal
+              cd Normal
               npm run lint              
       #- name: checking the test case coverage
       #  run: npm run test
