@@ -30,14 +30,27 @@ jobs:
         with:
           node-version: 14
           
-      - name: Install Node.js dependencies
-        run: npm ci
+      - name: Install Node.js dependencies in Crash_Course
+        run: |
+              cd Crash_Course
+              npm ci
+              
+      - name: Install Node.js dependencies in Normal
+        run: |
+              cd ../Normal
+              npm ci
           
 
       # Runs a single command using the runners shell
-      - name: Lint check
-        run: npm run lint
-        
+      - name: Lint check for Crash_Course
+        run: |
+              cd Crash_Course
+              npm run lint
+              
+      - name: Lint check for Normal
+        run: |
+              cd ../Normal
+              npm run lint              
       #- name: checking the test case coverage
       #  run: npm run test
 
